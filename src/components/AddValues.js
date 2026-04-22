@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from "react"
 
 function AddValues() {
-  const [num1, setNum1] = useState("");
-  const [num2, setNum2] = useState("");
+  const [num1, setNum1] = useState("")
+  const [num2, setNum2] = useState("")
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
@@ -11,7 +11,7 @@ function AddValues() {
       <input type="number" value={num2} placeholder="Enter second number" onChange={n2 => setNum2(n2.target.value)} />
       <h2>Sum: {Number(num1) + Number(num2)}</h2>
     </div>
-  );
+  )
 }
 
-export default AddValues;
+export default AddValues
