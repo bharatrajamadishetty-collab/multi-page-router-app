@@ -13,7 +13,7 @@ const Toggle = () => {
 function ThemeChange() {
     return (
         <ThemeProvider>
-            <div style={{ padding: "20px" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px" }}>
                 <h1>Theme Toggle to change Theme</h1>
                 <Toggle />
             </div>

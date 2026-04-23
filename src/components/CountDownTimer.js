@@ -45,7 +45,7 @@ const CountdownTimer = ({ targetDate }) => {
 
 export default function CdTimer() {
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontWeight: "bold", color: "#d71616ff" }}>
             <h1>Countdown</h1>
             <CountdownTimer targetDate="2026-05-26T23:59:59" />
         </div>

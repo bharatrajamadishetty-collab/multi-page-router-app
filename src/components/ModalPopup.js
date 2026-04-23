@@ -23,15 +23,15 @@ function Popup() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
             <h2>Popup Modal</h2>
 
-            <button onClick={() => setIsOpen(true)}>Open Modal</button>
+            <button style={{ padding: "10px", margin: "10px" }} onClick={() => setIsOpen(true)}>Open Modal</button>
 
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
                 <h3>Custom Popup</h3>
                 <p>Please read the Terms and Conditions.</p>
-                <button onClick={() => setIsOpen(false)}>Close</button>
+                <button style={{ padding: "10px", margin: "10px" }} onClick={() => setIsOpen(false)}>Close</button>
             </Modal>
         </div>
     );

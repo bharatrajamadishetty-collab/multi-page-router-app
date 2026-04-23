@@ -15,6 +15,7 @@ const StarRating = ({ maxStars = 5, onChange }) => {
                         style={{
                             fontSize: "30px",
                             color: starValue <= (hover || rating) ? "#ffc107" : "#e4e5e9",
+                            padding: "8px"
                         }}
                         onClick={() => {
                             setRating(starValue);
@@ -37,7 +38,7 @@ function RatingChange() {
     };
 
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
             <h2>Rate this product:</h2>
             <StarRating maxStars={5} onChange={handleRatingChange} />
         </div>
