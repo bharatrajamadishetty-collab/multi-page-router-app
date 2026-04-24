@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function SearchWithDebounce() {
+    const [users, setUsers] = useState([]);
     const [query, setQuery] = useState("");
     const [debouncedQuery, setDebouncedQuery] = useState("");
 
@@ -20,11 +21,12 @@ export default function SearchWithDebounce() {
         if (!debouncedQuery) return;
 
         console.log("Searching for:", debouncedQuery);
-        {/*fetch(`/api/search?q=${debouncedQuery}`)
+        fetch(`http://localhost:8080/v1/search?userName=${debouncedQuery}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-            });*/}
+                setUsers(data);
+            });
     }, [debouncedQuery]);
 
 
@@ -37,6 +39,24 @@ export default function SearchWithDebounce() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />
+            {users.map((user, index) => (
+                <table style={{ borderCollapse: "collapse", width: "100%" }}>
+                    <thead>
+                        <tr>
+                            <th style={{ border: "1px solid #ccc", padding: "8px" }}>User ID</th>
+                            <th style={{ border: "1px solid #ccc", padding: "8px" }}>Username</th>
+                            <th style={{ border: "1px solid #ccc", padding: "8px" }}>Expires At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr key={user.userId ?? index}>
+                            <td style={{ border: "1px solid #ccc", padding: "8px" }}>{user.userId}</td>
+                            <td style={{ border: "1px solid #ccc", padding: "8px" }}>{user.userName}</td>
+                            <td style={{ border: "1px solid #ccc", padding: "8px" }}>{user.expiresAt}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            ))}
         </div>
     );
 }
