@@ -124,9 +124,20 @@ function FormBuilder() {
                 </div>
 
 
-                <div style={{ display: "flex", justifyContent: "center" }}>
+                <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
                     <button type="submit" style={{ padding: "8px" }} >
                         Submit
+                    </button>
+                    <button
+                        type="button" style={{ padding: "8px" }}
+                        onClick={() => {
+                            setFormData({ name: "", email: "", message: "", file: null });
+                            setErrors({});
+                            const fileInput = document.getElementById("file-upload");
+                            if (fileInput) fileInput.value = "";
+                            setDragActive(false);
+                        }}
+                    >Reset
                     </button>
                 </div>
             </form>
